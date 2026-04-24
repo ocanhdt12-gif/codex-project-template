@@ -1,6 +1,6 @@
-# 🚀 Opencode Project Template
+# 🚀 Codex Project Template
 
-> Production-ready template để khởi động project mới với Opencode.  
+> Production-ready template để khởi động project mới với Codex.  
 > Tích hợp Brainstorming → Design → Plan → Code → Test → Monitor workflow.
 
 ---
@@ -18,7 +18,7 @@
 
 ## 📋 Yêu Cầu
 
-- [Opencode](https://opencode.ai) đã cài
+- [Codex](https://opencode.ai) đã cài
 - `git` đã cài
 - `bash` (macOS / Linux / WSL)
 - `python 3.10+` (cho Graphify)
@@ -56,13 +56,13 @@ Sau đó tự:
 - Ghi brain dump → `docs/BRIEF.md`
 - Reset git history (fresh repo)
 
-### Bước 3: Mở Opencode
+### Bước 3: Mở Codex
 
 ```bash
 opencode .
 ```
 
-Opencode tự đọc `CODEX.md` → kích hoạt **Phase 0: Brainstorming**:
+Codex tự đọc `CODEX.md` → kích hoạt **Phase 0: Brainstorming**:
 
 ```
 Đọc docs/BRIEF.md
@@ -89,7 +89,7 @@ Chia phases + tạo tasks → bắt đầu code 🚀
 ```
 my-project/
 │
-├── CODEX.md                      ← 🔑 Source of truth cho Opencode
+├── CODEX.md                      ← 🔑 Source of truth cho Codex
 │
 ├── docs/
 │   ├── BRIEF.md                   ← Brain dump ban đầu
@@ -214,14 +214,14 @@ graphify ./src
 graphify-out/
   ├── graph.html              # Interactive visualization
   ├── GRAPH_REPORT.md         # Core nodes + surprises
-  ├── graph.json              # Queryable graph (for Opencode)
+  ├── graph.json              # Queryable graph (for Codex)
   └── cache/
 ```
 
 **Usage:**
 - Review `GRAPH_REPORT.md` sau major changes
 - Open `graph.html` để explore architecture
-- Opencode reads `graph.json` để hiểu structure
+- Codex reads `graph.json` để hiểu structure
 - Run trước release để catch architecture drift
 
 Xem `docs/GRAPHIFY.md` để full guide.
@@ -298,7 +298,7 @@ Skill sẽ tự động:
 |------|-------|
 | Brainstorm trước khi code | Tránh build sai thứ |
 | Design doc phải được approve | Hard gate, không skip |
-| `CODEX.md` là source of truth | Opencode đọc đầu tiên |
+| `CODEX.md` là source of truth | Codex đọc đầu tiên |
 | 1 prompt = 1 task | Context nhỏ → output tốt |
 | Test viết ngay, không để cuối | Tránh bug chồng bug |
 | Commit sau mỗi task | Rollback dễ |

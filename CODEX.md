@@ -1,6 +1,6 @@
 # Project: [PROJECT_NAME]
 
-> 🔑 File này là source of truth. Opencode đọc file này đầu tiên mỗi session.
+> 🔑 File này là source of truth. Codex đọc file này đầu tiên mỗi session.
 > 📊 Xem `graphify-out/graph.json` để hiểu structure + dependencies (auto-generated).
 
 ---
@@ -22,30 +22,28 @@ Làm theo thứ tự, từng bước xong confirm user trước khi tiếp:
 Đọc `docs/BRIEF.md` để nắm ý tưởng ban đầu.
 Chỉ hỏi những gì còn thiếu hoặc mơ hồ, không hỏi lại những gì đã rõ.
 
-**Bước 2 — Clarify (từng câu một)**
-Hỏi từng câu một (KHÔNG hỏi nhiều cùng lúc).
-Tập trung vào: purpose, constraints, success criteria, must-have vs nice-to-have.
-Ưu tiên câu hỏi multiple choice khi có thể.
+**Bước 2 — Clarify Requirements**
+Hỏi từng câu một để làm rõ những gì còn mơ hồ.
+Ưu tiên multiple choice khi có thể.
 
-**Bước 3 — Propose 2-3 Approaches**
-Đề xuất 2-3 hướng tiếp cận khác nhau với trade-offs rõ ràng.
-Lead với recommendation của mày và giải thích lý do.
+**Bước 3 — Propose Approaches**
+Đề xuất 2-3 approaches + trade-offs.
+Giải thích ưu/nhược của từng cách.
 
-**Bước 4 — Present Design (từng section)**
-Sau mỗi section, hỏi user confirm trước khi đi tiếp.
-Các section: Architecture → Components → Data Flow → Error Handling → Testing Strategy
+**Bước 4 — Present Design**
+Trình bày design từng section.
+Confirm user sau mỗi section trước khi tiếp.
 
-**Bước 5 — Viết Design Doc**
-Lưu vào `docs/specs/YYYY-MM-DD-[topic]-design.md`.
-Commit ngay sau khi viết xong.
+**Bước 5 — Write Spec**
+Viết design doc vào `docs/specs/YYYY-MM-DD-design.md`.
+Commit ngay.
 
-**Bước 6 — Tự Review Spec**
-Kiểm tra:
-- Placeholder còn sót không? (TBD, TODO, [...])
-- Có mâu thuẫn giữa các section không?
-- Scope có quá lớn không? (nếu có → chia sub-projects)
-- Có requirement nào mơ hồ không?
-Fix inline, không cần hỏi lại.
+**Bước 6 — Self Review**
+Tự review spec:
+- Có placeholder text không?
+- Có contradiction không?
+- Scope rõ ràng không?
+- Ambiguity nào không?
 
 **Bước 7 — User Review**
 Hỏi user review file spec trước khi tiếp tục.
@@ -54,7 +52,7 @@ Chờ approve, nếu có changes thì update + re-review.
 **Bước 8 — Lên Phases + Tasks**
 Sau khi spec approved:
 - Chia thành 4 phases, viết vào `docs/phases/`
-- Update `CLAUDE.md` phần Stack, Folder Structure bên dưới
+- Update `CODEX.md` phần Stack, Folder Structure bên dưới
 - Tạo `tasks/todo.md` cho Phase 1
 - Xóa block "FIRST TIME SETUP" này
 
@@ -80,26 +78,19 @@ Sau khi spec approved:
 
 ## Model Strategy
 
-**Default Model:** Sonnet 4-6 (mọi task)  
-**Brainstorming:** GPT-5.5 (Phase 0 planning)  
+**Default Model:** GPT-5.5 (mọi task)  
 **Complex Tasks:** Opus 4-6 (refactor, architecture)  
-**Fallback:** GPT-5.5 (nếu Sonnet fail)
+**Fallback:** Sonnet 4-6 (nếu GPT fail)
 
 ### Khi Nào Dùng Từng Model?
 
-**Sonnet 4-6** (default)
+**GPT-5.5** (default)
 - Feature implementation
 - Bug fix
 - Test writing
 - Documentation
 - Regular development
-
-**GPT-5.5** (brainstorming + fallback)
-- Phase 0: Brainstorming + planning
-- Clarify requirements
-- Propose approaches
-- Design review
-- Fallback nếu Sonnet fail
+- Brainstorming + planning
 
 **Opus 4-6** (complex tasks)
 - Refactor lớn (> 5 files)
@@ -108,34 +99,25 @@ Sau khi spec approved:
 - Performance optimization
 - Deep reasoning needed
 
+**Sonnet 4-6** (fallback)
+- Fallback nếu GPT fail
+- Backup model
+
 ### Cách Chuyển Model
 
 ```bash
 # Check model hiện tại
 /status
 
-# Chuyển sang GPT (brainstorming)
-/model openai-codex/gpt-5.5
-
 # Chuyển sang Opus (complex)
 /model aihub-claude/claude-opus-4-6
 
-# Quay lại Sonnet (default)
-/model aihub-claude/claude-sonnet-4-6
+# Quay lại GPT (default)
+/model openai-codex/gpt-5.5
 ```
 
 ### Tips
 - Luôn check `/status` trước task
-- Dùng Sonnet mặc định (rẻ + đủ tốt)
-- Chuyển GPT cho brainstorming Phase 0
+- Dùng GPT mặc định (mọi task)
 - Chuyển Opus khi cần reasoning sâu
-- Quay lại Sonnet sau khi xong
-
-## Current Phase
-Phase 0 — Brainstorming (chưa bắt đầu)
-
-## Current Task
-Xem `tasks/todo.md`
-
-## Skills Available
-- `skills/brainstorming/SKILL.md` — dùng khi thêm feature mới hoặc thay đổi lớn
+- Quay lại GPT sau khi xong
