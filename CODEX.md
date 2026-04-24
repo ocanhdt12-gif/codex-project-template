@@ -78,46 +78,15 @@ Sau khi spec approved:
 
 ## Model Strategy
 
-**Default Model:** GPT-5.5 (mọi task)  
-**Complex Tasks:** Opus 4-6 (refactor, architecture)  
-**Fallback:** Sonnet 4-6 (nếu GPT fail)
+**Default Model:** GPT-5.5 (mọi task, mọi lúc)
 
-### Khi Nào Dùng Từng Model?
-
-**GPT-5.5** (default)
+Không cần swap model. Dùng GPT-5.5 cho:
+- Brainstorming + planning
 - Feature implementation
 - Bug fix
 - Test writing
 - Documentation
-- Regular development
-- Brainstorming + planning
+- Complex tasks
+- Mọi thứ khác
 
-**Opus 4-6** (complex tasks)
-- Refactor lớn (> 5 files)
-- Architecture changes
-- Complex algorithm
-- Performance optimization
-- Deep reasoning needed
-
-**Sonnet 4-6** (fallback)
-- Fallback nếu GPT fail
-- Backup model
-
-### Cách Chuyển Model
-
-```bash
-# Check model hiện tại
-/status
-
-# Chuyển sang Opus (complex)
-/model aihub-claude/claude-opus-4-6
-
-# Quay lại GPT (default)
-/model openai-codex/gpt-5.5
-```
-
-### Tips
-- Luôn check `/status` trước task
-- Dùng GPT mặc định (mọi task)
-- Chuyển Opus khi cần reasoning sâu
-- Quay lại GPT sau khi xong
+**Tip:** Check `/status` để confirm GPT-5.5 đang chạy.
