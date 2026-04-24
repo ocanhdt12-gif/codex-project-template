@@ -37,7 +37,9 @@ cd my-project
 ### Bước 2: Chạy script khởi tạo
 
 ```bash
-./scripts/start-project.sh
+Linux/macOS: ./scripts/start-project.sh
+Windows CMD: scripts\start-project.bat
+Windows PowerShell: .\scripts\start-project.ps1
 ```
 
 Script hỏi 2 thứ:
@@ -144,7 +146,9 @@ my-project/
 ## 🔄 Full Dev Process
 
 ```
-./scripts/start-project.sh
+Linux/macOS: ./scripts/start-project.sh
+Windows CMD: scripts\start-project.bat
+Windows PowerShell: .\scripts\start-project.ps1
   → Nhập tên + brain dump
   → docs/BRIEF.md tạo xong
         ↓
