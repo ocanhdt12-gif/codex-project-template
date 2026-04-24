@@ -12,9 +12,9 @@
 - [ ] Spec đã tự review (no placeholder, no contradiction)
 - [ ] User đã approve spec
 - [ ] `docs/phases/phase-1.md` đến `phase-4.md` đã điền đầy đủ
-- [ ] `CLAUDE.md` đã update Stack + Folder Structure
+- [ ] `CODEX.md` đã update Stack + Folder Structure
 - [ ] `tasks/todo.md` đã có tasks Phase 1
-- [ ] Block "FIRST TIME SETUP" đã xóa khỏi `CLAUDE.md`
+- [ ] Block "FIRST TIME SETUP" đã xóa khỏi `CODEX.md`
 - [ ] Commit tất cả changes
 
 ---
@@ -41,7 +41,7 @@ Tự review spec
 User review + approve
       ↓
 Chia phases → docs/phases/phase-1..4.md
-Update CLAUDE.md
+Update CODEX.md
 Tạo tasks/todo.md Phase 1
 Xóa FIRST TIME SETUP block
 ```

@@ -62,7 +62,7 @@ Sau đó tự:
 opencode .
 ```
 
-Opencode tự đọc `CLAUDE.md` → kích hoạt **Phase 0: Brainstorming**:
+Opencode tự đọc `CODEX.md` → kích hoạt **Phase 0: Brainstorming**:
 
 ```
 Đọc docs/BRIEF.md
@@ -89,7 +89,7 @@ Chia phases + tạo tasks → bắt đầu code 🚀
 ```
 my-project/
 │
-├── CLAUDE.md                      ← 🔑 Source of truth cho Opencode
+├── CODEX.md                      ← 🔑 Source of truth cho Opencode
 │
 ├── docs/
 │   ├── BRIEF.md                   ← Brain dump ban đầu
@@ -298,7 +298,7 @@ Skill sẽ tự động:
 |------|-------|
 | Brainstorm trước khi code | Tránh build sai thứ |
 | Design doc phải được approve | Hard gate, không skip |
-| `CLAUDE.md` là source of truth | Opencode đọc đầu tiên |
+| `CODEX.md` là source of truth | Opencode đọc đầu tiên |
 | 1 prompt = 1 task | Context nhỏ → output tốt |
 | Test viết ngay, không để cuối | Tránh bug chồng bug |
 | Commit sau mỗi task | Rollback dễ |
@@ -313,7 +313,7 @@ Skill sẽ tự động:
 
 ### Bắt đầu task mới
 ```
-Đọc CLAUDE.md → docs/phases/phase-N.md → tasks/todo.md
+Đọc CODEX.md → docs/phases/phase-N.md → tasks/todo.md
 
 Implement task "In Progress".
 Chỉ sửa files được liệt kê trong task.
