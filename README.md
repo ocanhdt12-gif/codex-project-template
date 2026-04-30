@@ -404,8 +404,7 @@ Skill sẽ tự động:
 | Test viết ngay, không để cuối | Tránh bug chồng bug |
 | Commit sau mỗi task | Rollback dễ |
 | Review memory/ + learnings/ | Tránh lỗi cũ |
-| **Phase 0: Dùng GPT-5.5** | Brainstorming |
-| **Dev: Dùng gpt-5.3 (codex)** | Code implementation |
+| **Dùng GPT-5.5 cho mọi task** | Brainstorm + code + review |
 
 ---
 

@@ -78,42 +78,28 @@ Sau khi spec approved:
 
 ## Model Strategy
 
-**Brainstorming:** GPT-5.5 (Phase 0 planning)  
-**Code:** gpt-5.3 (codex) (mọi task development)
+**Tất cả tasks:** GPT-5.5 (brainstorming + code + mọi thứ)
 
-### Khi Nào Dùng Từng Model?
+### Model Duy Nhất: GPT-5.5
 
-**GPT-5.5** (brainstorming)
+Dùng `openai-codex/gpt-5.5` cho **tất cả** tasks:
 - Phase 0: Brainstorming + planning
-- Clarify requirements
-- Propose approaches
-- Design review
-
-**gpt-5.3 (codex)** (code)
 - Feature implementation
 - Bug fix
 - Test writing
 - Documentation
-- Regular development
-- Mọi task code
+- Code review
+- Mọi task khác
 
-### Cách Chuyển Model
+### Cách Check Model
 
 ```bash
 # Check model hiện tại
 /status
 
-# Chuyển sang GPT-5.5 (brainstorming)
+# Set model nếu chưa đúng
 /model openai-codex/gpt-5.5
-
-# Chuyển sang gpt-5.3 (code)
-/model openai-codex/gpt-5.3
 ```
-
-### Tips
-- Luôn check `/status` trước task
-- Phase 0: dùng GPT-5.5
-- Code: dùng gpt-5.3
 
 ## Skills Available
 
