@@ -411,6 +411,36 @@ Skill sẽ tự động:
 ## 📝 Prompt Templates
 
 ### Bắt đầu task mới
+
+**Step 1: Pick task**
+```bash
+npm run pick-task
+# → Chọn task → Nhập tên → Xong!
+# (tự động update status + push)
+```
+
+**Step 2: Implement task**
+```
+Đọc CLAUDE.md / CODEX.md → tasks/layer-X-todo.md
+
+Implement task được assign.
+Chỉ sửa files được liệt kê trong task.
+```
+
+**Step 3: Test + Commit + Done**
+```bash
+# 1. Viết unit test
+npm test
+
+# 2. Commit
+git add .
+git commit -m "feat/fix/test: [mô tả ngắn]"
+git push origin feature/task-X-...
+
+# 3. Move task sang done.md
+# (update task file: status = done)
+
+# 4. Báo kết quả
 ```
 Đọc CODEX.md → docs/phases/phase-N.md → tasks/todo.md
 
