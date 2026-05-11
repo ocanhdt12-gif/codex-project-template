@@ -49,11 +49,14 @@ Tự review spec:
 Hỏi user review file spec trước khi tiếp tục.
 Chờ approve, nếu có changes thì update + re-review.
 
-**Bước 8 — Lên Phases + Tasks**
+**Bước 8 — Lên Layers + Tasks**
 Sau khi spec approved:
-- Chia thành 4 phases, viết vào `docs/phases/`
+- Phân tích dependency → chia thành layers (Layer 0, 1, 2, ...)
+- Layer 0 (Foundation): không phụ thuộc vào layer khác
+- Layer N: phụ thuộc vào Layer 0 → N-1
+- Tạo `tasks/layer-0-todo.md` (Foundation tasks)
+- Tạo `tasks/layer-1-todo.md`, `layer-2-todo.md`, ... khi cần
 - Update `CODEX.md` phần Stack, Folder Structure bên dưới
-- Tạo `tasks/todo.md` cho Phase 1
 - Xóa block "FIRST TIME SETUP" này
 
 ⚠️ KHÔNG code gì trong Phase 0. KHÔNG skip bước nào.
@@ -65,6 +68,23 @@ Sau khi spec approved:
 
 ## Folder Structure
 [Điền sau Phase 0]
+
+### 📋 Specifications
+Xem `docs/SPECIFICATIONS.md` để chi tiết đầy đủ về chức năng, requirements, và design.
+
+### 📋 Task Structure — Dependency-Driven
+Dùng **Dependency-Driven approach**:
+- `tasks/layer-0-todo.md` — Foundation (no dependency)
+- `tasks/layer-1-todo.md` — Depends on Layer 0 (tạo khi cần)
+- `tasks/layer-2-todo.md` — Depends on Layer 1 (tạo khi cần)
+- ... (thêm layer tùy scope)
+- `tasks/done.md` — Completed tasks
+
+**Quy tắc:**
+- Số layer phụ thuộc vào scope breakdown + dependency analysis
+- Các task trong cùng layer có thể làm song parallel
+- Chỉ khi layer N hoàn toàn xong → mới bắt đầu layer N+1
+- Xem `docs/SCOPE_BREAKDOWN.md` để chi tiết
 
 
 ### 🆕 Handling Emerging Tasks
