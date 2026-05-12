@@ -15,9 +15,8 @@ Cấu trúc `CLAUDE.md`, `skills/`, `docs/` được thiết kế để Opencode
 
 - **Brainstorm trước, code sau** — design doc được approve trước khi viết dòng code đầu tiên
 - **Scope breakdown tối ưu** — Dependency-Driven approach (Layer 0 → 1 → 2 → ...)
-- **Không mất context** — auto-save/load context qua sessions
+- **Không mất context** — Persistent storage + session management
 - **Không code lung tung** — plan rõ ràng, task nhỏ, test ngay
-- **Auto-learn từ mistakes** — continuous learning system
 - **Understand codebase** — Graphify knowledge graph
 - **Production-ready** — monitoring, error tracking, metrics, CI/CD
 
@@ -90,8 +89,6 @@ my-project/
 │   ├── SPECIFICATIONS.md          ← Chi tiết requirements (nếu có file)
 │   ├── SCOPE_BREAKDOWN.md         ← Phân tích dependency + layers
 │   ├── MONITORING.md              ← Sentry + Prometheus + Grafana
-│   ├── MEMORY_HOOKS.md            ← Auto-save/load context
-│   ├── CONTINUOUS_LEARNING.md     ← Auto-extract patterns
 │   ├── GRAPHIFY.md                ← Knowledge graph builder
 │   ├── CI_CD_WEB.md               ← Web CI/CD flow
 │   ├── specs/                     ← Design docs (output của brainstorming)
@@ -103,7 +100,6 @@ my-project/
 │   └── brainstorming/
 │       └── SKILL.md               ← Reusable brainstorming workflow
 │
-├── memory/                        ← Auto-save context từ sessions
 │   └── .gitkeep
 │
 ├── .learnings/                    ← Auto-extract patterns + lessons
