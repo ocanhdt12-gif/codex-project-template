@@ -201,6 +201,9 @@ Dùng `openai-codex/gpt-5.5` cho **tất cả** tasks:
 - `skills/database-orm-patterns/SKILL.md` — Prisma/TypeORM, schema design, migrations, transactions
 - `skills/testing-backend-jest/SKILL.md` — Unit/API tests (Jest + Supertest), mocking, fixtures
 
+### Browser & Testing Tools
+- `docs/CHROME_DEVTOOLS_MCP.md` — Chrome DevTools MCP for browser automation, debugging, performance analysis, E2E testing
+
 ## Boilerplate (Stack-Conditional)
 
 > Chỉ dùng khi stack là **React hoặc Next.js**. Bỏ qua nếu project là Node.js API thuần, Python, CLI, v.v.
