@@ -230,22 +230,6 @@ Xem `docs/CI_CD_WEB.md` để full guide.
 
 ---
 
-## 🧠 Memory & Learning
-
-### Memory Hooks
-Auto-save/load context qua sessions:
-- Session end: save → `memory/YYYY-MM-DD.md`
-- Session start: load từ `memory/`
-- Xem `docs/MEMORY_HOOKS.md` để setup
-
-### Continuous Learning
-Auto-extract patterns + lessons:
-- Extract → `.learnings/YYYY-MM-DD-[topic].md`
-- Promote → AGENTS.md / TOOLS.md khi validated
-- Tránh lỗi cũ lần sau
-- Xem `docs/CONTINUOUS_LEARNING.md` để setup
-
----
 
 ## 📊 Knowledge Graph (Graphify)
 
@@ -360,7 +344,6 @@ Skills là các instruction set chuyên biệt giúp AI code đúng pattern, đ�
 | 1 prompt = 1 task | Context nhỏ → output tốt |
 | Test viết ngay, không để cuối | Tránh bug chồng bug |
 | Commit sau mỗi task | Rollback dễ |
-| Review memory/ + learnings/ | Tránh lỗi cũ |
 | Dùng resource file cho secrets | Không hard-code key, url, password vào code |
 
 ---
@@ -410,8 +393,6 @@ Khi user báo bug/feature:
 
 - **Scope Breakdown:** `docs/SCOPE_BREAKDOWN.md`
 - **Brainstorming Skill:** `skills/brainstorming/SKILL.md`
-- **Memory Hooks:** `docs/MEMORY_HOOKS.md`
-- **Continuous Learning:** `docs/CONTINUOUS_LEARNING.md`
 - **Graphify:** `docs/GRAPHIFY.md`
 - **Monitoring:** `docs/MONITORING.md`
 - **Web CI/CD:** `docs/CI_CD_WEB.md`
