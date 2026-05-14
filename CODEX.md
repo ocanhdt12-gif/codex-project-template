@@ -1,6 +1,6 @@
 # Project: [PROJECT_NAME]
 
-> 🔑 File này là source of truth. Codex đọc file này đầu tiên mỗi session.
+> 🔑 File này là source of truth. Opencode đọc file này đầu tiên mỗi session.
 > 📊 Xem `graphify-out/graph.json` để hiểu structure + dependencies (auto-generated).
 
 ---
@@ -24,36 +24,39 @@ Làm theo thứ tự, từng bước xong confirm user trước khi tiếp:
 - Dùng để: Opencode hiểu structure + dependencies của project
 - Commit: Thêm `graphify-out/` vào `.gitignore` (không commit generated files)
 
-**Bước 1 — Đọc Brief**
-Đọc `docs/BRIEF.md` để nắm ý tưởng ban đầu.
-Chỉ hỏi những gì còn thiếu hoặc mơ hồ, không hỏi lại những gì đã rõ.
+**Bước 1 — Đọc Brief & Specifications**
+- Đọc `docs/BRIEF.md` để nắm ý tưởng ban đầu
+- Nếu có `docs/SPECIFICATIONS.md` → đọc để hiểu chi tiết requirements, features, design
+- Chỉ hỏi những gì còn thiếu hoặc mơ hồ, không hỏi lại những gì đã rõ
 
-**Bước 2 — Clarify Requirements**
-Hỏi từng câu một để làm rõ những gì còn mơ hồ.
-Ưu tiên multiple choice khi có thể.
+**Bước 2 — Clarify (từng câu một)**
+- Hỏi từng câu một (KHÔNG hỏi nhiều cùng lúc)
+- Tập trung vào: purpose, constraints, success criteria, must-have vs nice-to-have
+- Ưu tiên câu hỏi multiple choice khi có thể
 
-**Bước 3 — Propose Approaches**
-Đề xuất 2-3 approaches + trade-offs.
-Giải thích ưu/nhược của từng cách.
+**Bước 3 — Propose 2-3 Approaches**
+- Đề xuất 2-3 hướng tiếp cận khác nhau với trade-offs rõ ràng
+- Lead với recommendation của mày và giải thích lý do
 
-**Bước 4 — Present Design**
-Trình bày design từng section.
-Confirm user sau mỗi section trước khi tiếp.
+**Bước 4 — Present Design (từng section)**
+- Sau mỗi section, hỏi user confirm trước khi đi tiếp
+- Các section: Architecture → Components → Data Flow → Error Handling → Testing Strategy
 
-**Bước 5 — Write Spec**
-Viết design doc vào `docs/specs/YYYY-MM-DD-design.md`.
-Commit ngay.
+**Bước 5 — Viết Design Doc**
+- Lưu vào `docs/specs/YYYY-MM-DD-[topic]-design.md`
+- Commit ngay sau khi viết xong
 
-**Bước 6 — Self Review**
-Tự review spec:
-- Có placeholder text không?
-- Có contradiction không?
-- Scope rõ ràng không?
-- Ambiguity nào không?
+**Bước 6 — Tự Review Spec**
+Kiểm tra:
+- Placeholder còn sót không? (TBD, TODO, [...])
+- Có mâu thuẫn giữa các section không?
+- Scope có quá lớn không? (nếu có → chia sub-projects)
+- Có requirement nào mơ hồ không?
+Fix inline, không cần hỏi lại.
 
 **Bước 7 — User Review**
-Hỏi user review file spec trước khi tiếp tục.
-Chờ approve, nếu có changes thì update + re-review.
+- Hỏi user review file spec trước khi tiếp tục
+- Chờ approve, nếu có changes thì update + re-review
 
 **Bước 8 — Lên Layers + Tasks**
 Sau khi spec approved:
@@ -62,12 +65,34 @@ Sau khi spec approved:
 - Layer N: phụ thuộc vào Layer 0 → N-1
 - Tạo `tasks/layer-0-todo.md` (Foundation tasks)
 - Tạo `tasks/layer-1-todo.md`, `layer-2-todo.md`, ... khi cần
-- Update `CODEX.md` phần Stack, Folder Structure bên dưới
+- Update `CLAUDE.md` phần Stack, Folder Structure bên dưới
 - Xóa block "FIRST TIME SETUP" này
 
 ⚠️ KHÔNG code gì trong Phase 0. KHÔNG skip bước nào.
 
 ---
+
+## 📋 Context
+
+### 📋 Specifications
+Xem `docs/SPECIFICATIONS.md` để chi tiết đầy đủ về chức năng, requirements, và design.
+
+### 📋 Task Structure — Dependency-Driven
+Dùng **Dependency-Driven approach**:
+- `tasks/layer-0-todo.md` — Foundation (no dependency)
+- `tasks/layer-1-todo.md` — Depends on Layer 0 (tạo khi cần)
+- `tasks/layer-2-todo.md` — Depends on Layer 1 (tạo khi cần)
+- ... (thêm layer tùy scope)
+- `tasks/done.md` — Completed tasks
+
+**Quy tắc:**
+- Số layer phụ thuộc vào scope breakdown + dependency analysis
+- Mỗi layer chứa nhiều task độc lập (không phải chỉ 1 task)
+- Các task trong cùng layer có thể làm song parallel
+- Chỉ khi layer N hoàn toàn xong → mới bắt đầu layer N+1
+- Xem `docs/SCOPE_BREAKDOWN.md` để chi tiết
+
+
 
 ## Stack
 [Điền sau Phase 0]
@@ -98,24 +123,42 @@ Sau khi spec approved:
 7. Test responsive design (mobile, tablet, desktop)
 
 ## Folder Structure
-[Điền sau Phase 0]
 
-### 📋 Specifications
-Xem `docs/SPECIFICATIONS.md` để chi tiết đầy đủ về chức năng, requirements, và design.
+```
+src/
+├── components/
+├── pages/
+├── utils/
+├── hooks/
+├── types/
+└── ...
 
-### 📋 Task Structure — Dependency-Driven
-Dùng **Dependency-Driven approach**:
-- `tasks/layer-0-todo.md` — Foundation (no dependency)
-- `tasks/layer-1-todo.md` — Depends on Layer 0 (tạo khi cần)
-- `tasks/layer-2-todo.md` — Depends on Layer 1 (tạo khi cần)
-- ... (thêm layer tùy scope)
-- `tasks/done.md` — Completed tasks
+docs/
+├── BRIEF.md                    ← Tóm tắt project
+├── SPECIFICATIONS.md           ← Chi tiết requirements
+├── SCOPE_BREAKDOWN.md          ← Phân tích dependency + layers
+├── specs/
+│   └── YYYY-MM-DD-[topic]-design.md
+└── ...
 
-**Quy tắc:**
-- Số layer phụ thuộc vào scope breakdown + dependency analysis
-- Các task trong cùng layer có thể làm song parallel
-- Chỉ khi layer N hoàn toàn xong → mới bắt đầu layer N+1
-- Xem `docs/SCOPE_BREAKDOWN.md` để chi tiết
+tasks/
+├── layer-0-todo.md             ← Foundation tasks
+├── layer-1-todo.md             ← Layer 1 tasks (tạo khi cần)
+├── layer-2-todo.md             ← Layer 2 tasks (tạo khi cần)
+└── done.md                     ← Completed tasks log
+
+tests/
+├── unit/
+├── integration/
+└── e2e/
+
+.github/workflows/
+├── ci.yml                      ← Quality gate
+├── preview-build.yml           ← Preview artifact
+└── production-build.yml        ← Production artifact
+```
+
+---
 
 ## 🔄 After Completion — Layer Refinement
 
@@ -165,37 +208,72 @@ Khi user báo bug/feature:
 - **Scope control** — không sửa file ngoài danh sách cho phép trong task
 - **Error handling** — mọi async function phải handle error
 - **Brainstorm trước khi thêm feature** — đọc `skills/brainstorming/SKILL.md`
+- **Resource file cho secrets** — KHÔNG hard-code key, url, password, username vào code. Lưu vào `.env` hoặc `config/resources.json` rồi gọi ra
 
-**Lợi ích:**
-- ✅ Mọi người pull về sẽ thấy task đã assign → không ai pick lại
-- ✅ Task file luôn up-to-date trên main
-- ✅ Tránh conflict khi 2 người cùng pick task
-- ✅ Mỗi task = 1 branch riêng → dễ review + rollback
+---
 
 ## Model Strategy
 
-**Tất cả tasks:** GPT-5.5 (brainstorming + code + mọi thứ)
+**Default Model:** Sonnet 4-6 (mọi task)  
+**Brainstorming:** GPT-5.5 (Phase 0 planning)  
+**Complex Tasks:** Opus 4-6 (refactor, architecture)  
+**Fallback:** GPT-5.5 (nếu Sonnet fail)
 
-### Model Duy Nhất: GPT-5.5
+### Khi Nào Dùng Từng Model?
 
-Dùng `openai-codex/gpt-5.5` cho **tất cả** tasks:
-- Phase 0: Brainstorming + planning
+**Sonnet 4-6** (default)
 - Feature implementation
 - Bug fix
 - Test writing
 - Documentation
-- Code review
-- Mọi task khác
+- Regular development
 
-### Cách Check Model
+**GPT-5.5** (brainstorming + fallback)
+- Phase 0: Brainstorming + planning
+- Clarify requirements
+- Propose approaches
+- Design review
+- Fallback nếu Sonnet fail
+
+**Opus 4-6** (complex tasks)
+- Refactor lớn (> 5 files)
+- Architecture changes
+- Complex algorithm
+- Performance optimization
+- Deep reasoning needed
+
+### Cách Chuyển Model
 
 ```bash
 # Check model hiện tại
 /status
 
-# Set model nếu chưa đúng
+# Chuyển sang GPT (brainstorming)
 /model openai-codex/gpt-5.5
+
+# Chuyển sang Opus (complex)
+/model aihub-claude/claude-opus-4-6
+
+# Quay lại Sonnet (default)
+/model aihub-claude/claude-sonnet-4-6
 ```
+
+### Tips
+- Luôn check `/status` trước task
+- Dùng Sonnet mặc định (rẻ + đủ tốt)
+- Chuyển GPT cho brainstorming Phase 0
+- Chuyển Opus khi cần reasoning sâu
+- Quay lại Sonnet sau khi xong
+
+---
+
+## Current Layer
+Layer 0 — Foundation (chưa bắt đầu)
+
+## Current Task
+Xem `tasks/layer-0-todo.md`
+
+---
 
 ## Skills Available
 
@@ -224,6 +302,7 @@ Dùng `openai-codex/gpt-5.5` cho **tất cả** tasks:
 ### API & Integration
 - `skills/api-design/SKILL.md` — REST principles, request/response format, versioning, pagination
 - `skills/security-best-practices/SKILL.md` — OWASP Top 10, auth, CORS/CSRF, XSS prevention
+- `skills/llm-integration/SKILL.md` — OpenAI/Anthropic/Gemini APIs, token optimization, streaming
 
 ### Backend (Node.js)
 - `skills/nodejs-express-patterns/SKILL.md` — Express routing, middleware, controllers, services
@@ -233,13 +312,187 @@ Dùng `openai-codex/gpt-5.5` cho **tất cả** tasks:
 ### Browser & Testing Tools
 - `docs/CHROME_DEVTOOLS_MCP.md` — Chrome DevTools MCP for browser automation, debugging, performance analysis, E2E testing
 
+### DevOps & Deployment
+- `skills/boilerplate/SKILL.md` — Stack-conditional boilerplate (React, Next.js, Node.js, etc.)
+
+---
+
+## CI/CD Guidance
+
+- PR/push phải qua quality gate: lint, typecheck, tests, build
+- `develop` dùng cho preview build / review artifact
+- production build nên manual hoặc approval-gated
+- Chỉ thêm deploy provider-specific sau khi hosting được chốt rõ
+
+---
+
 ## Boilerplate (Stack-Conditional)
 
 > Chỉ dùng khi stack là **React hoặc Next.js**. Bỏ qua nếu project là Node.js API thuần, Python, CLI, v.v.
 
 Nếu Phase 0 xác định stack là React/Next.js:
-1. Đọc `skills/boilerplate/react-nextjs/BOILERPLATE.md`
+1. Đọc `skills/boilerplate/BOILERPLATE.md`
 2. Follow setup commands và config files trong đó
 3. Các skill `frontend-agent`, `typescript`, `tailwind-v4-shadcn` sẽ tự động áp dụng
 
 Nếu stack khác → bỏ qua folder `skills/boilerplate/` hoàn toàn.
+
+---
+
+## 🎨 Agent Prompt Guide — Design System
+
+**BẮTBUỘC đọc trước khi code UI/UX.**
+
+### Lệnh cho Agents
+
+Khi design/code bất kỳ UI/UX nào, agents phải:
+
+```
+Đọc docs/DESIGN.md trước khi bắt đầu.
+Tuân theo design system Claude (Anthropic).
+Sử dụng CSS variables từ src/styles/design-tokens.css.
+Sử dụng components từ src/components/ (Button, Card, v.v.).
+```
+
+### CSS Variables (Bắt buộc)
+
+**Luôn dùng CSS variables, KHÔNG bao giờ hardcode colors/spacing:**
+
+```tsx
+// ✅ GOOD
+<div style={{ padding: 'var(--spacing-md)', color: 'var(--color-text)' }}>
+  Content
+</div>
+
+// ❌ BAD
+<div style={{ padding: '16px', color: '#111827' }}>
+  Content
+</div>
+```
+
+### Components (Bắt buộc)
+
+**Sử dụng components từ src/components/ cho UI consistency:**
+
+```tsx
+// ✅ GOOD
+import { Button, Card } from '@/components';
+
+export function MyPage() {
+  return (
+    <Card variant="default">
+      <Button variant="primary" size="lg">
+        Submit
+      </Button>
+    </Card>
+  );
+}
+
+// ❌ BAD
+export function MyPage() {
+  return (
+    <div style={{ border: '1px solid #e5e7eb', padding: '16px' }}>
+      <button style={{ backgroundColor: '#d97706', color: 'white' }}>
+        Submit
+      </button>
+    </div>
+  );
+}
+```
+
+### Spacing Scale (Bắt buộc)
+
+**Sử dụng spacing scale, KHÔNG bao giờ custom spacing:**
+
+```css
+--spacing-xs: 4px     /* Margin/padding rất nhỏ */
+--spacing-sm: 8px     /* Margin/padding nhỏ */
+--spacing-md: 16px    /* Default margin/padding */
+--spacing-lg: 24px    /* Large margin/padding */
+--spacing-xl: 32px    /* XL margin/padding */
+--spacing-2xl: 48px   /* XXL margin/padding */
+--spacing-3xl: 64px   /* Huge margin/padding */
+```
+
+### Color Palette (Bắt buộc)
+
+**Sử dụng color palette, KHÔNG bao giờ custom colors:**
+
+```css
+--color-primary: #d97706           /* Main accent (Terracotta) */
+--color-text: #111827              /* Dark text */
+--color-text-secondary: #6b7280    /* Gray text */
+--color-surface: #f9fafb           /* Light surface */
+--color-border: #e5e7eb            /* Border color */
+--color-success: #10b981           /* Success state */
+--color-warning: #f59e0b           /* Warning state */
+--color-error: #ef4444             /* Error state */
+```
+
+### Typography Scale (Bắt buộc)
+
+**Sử dụng typography scale cho headings/text:**
+
+```css
+--type-scale-xs: 0.75rem   /* 12px - Small labels */
+--type-scale-sm: 0.875rem  /* 14px - Captions */
+--type-scale-base: 1rem    /* 16px - Body text */
+--type-scale-lg: 1.125rem  /* 18px - Subheadings */
+--type-scale-xl: 1.25rem   /* 20px - Section titles */
+--type-scale-2xl: 1.5rem   /* 24px - Page titles */
+--type-scale-3xl: 1.875rem /* 30px - Hero titles */
+--type-scale-4xl: 2.25rem  /* 36px - Main headlines */
+```
+
+### Accessibility (Bắt buộc)
+
+**Mỗi component phải:**
+
+- ✅ Có keyboard navigation support (Tab, Enter, Escape)
+- ✅ Có focus states rõ ràng (`outline: 2px solid var(--color-primary)`)
+- ✅ Có proper ARIA labels (`aria-label`, `aria-describedby`)
+- ✅ Có sufficient color contrast (≥ 4.5:1 for text)
+- ✅ Được test với screen readers
+
+### Responsive Design (Bắt buộc)
+
+**Mobile-first approach:**
+
+```css
+/* Mobile first */
+body { font-size: var(--type-scale-sm); }
+
+/* Tablet + */
+@media (min-width: 768px) {
+  body { font-size: var(--type-scale-base); }
+}
+
+/* Desktop + */
+@media (min-width: 1024px) {
+  body { font-size: var(--type-scale-lg); }
+}
+```
+
+### Testing (Bắt buộc)
+
+**Trước khi push, phải test:**
+
+- ✅ Responsive design (mobile, tablet, desktop)
+- ✅ Accessibility (keyboard, screen reader, color contrast)
+- ✅ Browser compatibility (Chrome, Firefox, Safari)
+- ✅ Dark mode (nếu có)
+
+### Checklist Trước Khi Commit
+
+- [ ] Đã dùng CSS variables (KHÔNG hardcode colors/spacing)
+- [ ] Đã dùng components từ src/components/
+- [ ] Đã follow spacing scale
+- [ ] Đã follow typography scale
+- [ ] Đã maintain accessibility (WCAG AA)
+- [ ] Đã test responsive design
+- [ ] Đã update docs/DESIGN.md nếu thêm component mới
+- [ ] Đã test trên mobile, tablet, desktop
+
+---
+
+**Nếu bất cứ câu hỏi nào về design system, hãy đọc `docs/DESIGN.md` trước tiên.**
