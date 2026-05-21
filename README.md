@@ -1,13 +1,13 @@
-# 🚀 Opencode Project Template
+# 🚀 Codex Project Template
 
-> Production-ready template để khởi động **Web project** mới với **[Opencode](https://opencode.ai)**.  
+> Production-ready template để khởi động **Web project** mới với **[Codex](https://codex.ai)**.  
 > Tích hợp Brainstorming → Design → Scope Breakdown → Code → Test → Monitor workflow.
 
-![AI Tool](https://img.shields.io/badge/AI-Opencode-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01ek0yIDE3bDEwIDUgMTAtNS0xMC01LTEwIDV6TTIgMTJsMTAgNSAxMC01LTEwLTUtMTAgNXoiLz48L3N2Zz4=) ![Platform](https://img.shields.io/badge/Platform-Web-green) ![Language](https://img.shields.io/badge/Stack-Node.js%20%7C%20React%20%7C%20TypeScript-blue)
+![AI Tool](https://img.shields.io/badge/AI-Codex-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01ek0yIDE3bDEwIDUgMTAtNS0xMC01LTEwIDV6TTIgMTJsMTAgNSAxMC01LTEwLTUtMTAgNXoiLz48L3N2Zz4=) ![Platform](https://img.shields.io/badge/Platform-Web-green) ![Language](https://img.shields.io/badge/Stack-Node.js%20%7C%20React%20%7C%20TypeScript-blue)
 
-### 🤖 Dành cho Opencode
-Template này được tối ưu cho **Opencode** — AI coding assistant chạy trong terminal.  
-Cấu trúc `CLAUDE.md`, `skills/`, `docs/` được thiết kế để Opencode đọc và làm việc hiệu quả nhất.
+### 🤖 Dành cho Codex
+Template này được tối ưu cho **Codex** — AI coding assistant chạy trong terminal.  
+Cấu trúc `CODEX.md`, `skills/`, `docs/` được thiết kế để Codex đọc và làm việc hiệu quả nhất.
 
 ---
 
@@ -23,11 +23,25 @@ Cấu trúc `CLAUDE.md`, `skills/`, `docs/` được thiết kế để Opencode
 
 ## 📋 Yêu Cầu
 
-- [Opencode](https://opencode.ai) đã cài
+- [Codex](https://codex.ai) đã cài
 - `git` đã cài
 - `bash` (macOS / Linux / WSL) HOẶC `cmd`/`PowerShell` (Windows)
 - `npm` hoặc `pnpm`
 - Chrome browser (cho E2E testing)
+- **Python 3.10+** + **uv** (package manager)
+- **graphify** (code dependency analyzer)
+
+### Cài Graphify
+
+```bash
+# Clone graphify repo
+git clone https://github.com/safishamsi/graphify.git
+cd graphify
+uv sync
+
+# Graphify sẽ chạy sau Layer 0 (sau khi setup project xong)
+# để phân tích dependency + tạo graph.json
+```
 
 ---
 
